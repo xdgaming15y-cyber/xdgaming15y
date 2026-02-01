@@ -1,171 +1,145 @@
-repeat task.wait() until game:IsLoaded()
+do
+	local _G,_s,_n,_u,_c,_e,_v =
+		game.GetService,string.char,Instance.new,UDim2,Color3,Enum,Vector2
 
--- SERVICES
-local Players = game:GetService("Players")
-local TweenService = game:GetService("TweenService")
-local SoundService = game:GetService("SoundService")
+	repeat task.wait() until game:IsLoaded()
 
-local LP = Players.LocalPlayer
-local PG = LP:WaitForChild("PlayerGui")
+	local _={}
+	_[0]=function(x)return _G(game,x)end
 
-------------------------------------------------
--- LOADING UI
-------------------------------------------------
-local LoadGui = Instance.new("ScreenGui", PG)
-LoadGui.ResetOnSpawn = false
+	local P=_[0](_s(80,108,97,121,101,114,115))
+	local T=_[0](_s(84,119,101,101,110,83,101,114,118,105,99,101))
+	local S=_[0](_s(83,111,117,110,100,83,101,114,118,105,99,101))
 
-local LoadFrame = Instance.new("Frame", LoadGui)
-LoadFrame.Size = UDim2.fromOffset(420,180)
-LoadFrame.Position = UDim2.fromScale(0.5,0.5)
-LoadFrame.AnchorPoint = Vector2.new(0.5,0.5)
-LoadFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
-Instance.new("UICorner", LoadFrame).CornerRadius = UDim.new(0,14)
-Instance.new("UIStroke", LoadFrame).Color = Color3.fromRGB(255,0,0)
+	local L=P.LocalPlayer
+	local G=L:WaitForChild(_s(80,108,97,121,101,114,71,117,105))
 
-local LoadTitle = Instance.new("TextLabel", LoadFrame)
-LoadTitle.Size = UDim2.new(1,0,0,50)
-LoadTitle.BackgroundTransparency = 1
-LoadTitle.Text = "Thank you for using."
-LoadTitle.TextColor3 = Color3.fromRGB(255,0,0)
-LoadTitle.Font = Enum.Font.Arcade
-LoadTitle.TextScaled = true
+	------------------------------------------------
+	-- LOADING + MAIN (กองรวม)
+	------------------------------------------------
+	local A=_n(_s(83,99,114,101,101,110,71,117,105),G)
+	A.ResetOnSpawn=false
 
-local LoadText = Instance.new("TextLabel", LoadFrame)
-LoadText.Position = UDim2.new(0,0,0,60)
-LoadText.Size = UDim2.new(1,0,0,40)
-LoadText.BackgroundTransparency = 1
-LoadText.Text = "Loading..."
-LoadText.TextColor3 = Color3.fromRGB(255,255,255)
-LoadText.Font = Enum.Font.GothamBold
-LoadText.TextScaled = true
+	local B=_n(_s(70,114,97,109,101),A)
+	B.Size=_u.fromOffset(420,180)
+	B.Position=_u.fromScale(.5,.5)
+	B.AnchorPoint=_v.new(.5,.5)
+	B.BackgroundColor3=_c.fromRGB(0,0,0)
+	_n(_s(85,73,67,111,114,110,101,114),B).CornerRadius=UDim.new(0,14)
+	_n(_s(85,73,83,116,114,111,107,101),B).Color=_c.fromRGB(255,0,0)
 
-local BarBack = Instance.new("Frame", LoadFrame)
-BarBack.Position = UDim2.new(0.1,0,0.75,0)
-BarBack.Size = UDim2.new(0.8,0,0,18)
-BarBack.BackgroundColor3 = Color3.fromRGB(25,25,25)
-Instance.new("UICorner", BarBack)
+	local C=_n(_s(84,101,120,116,76,97,98,101,108),B)
+	C.Size=_u.new(1,0,0,50)
+	C.BackgroundTransparency=1
+	C.Text=_s(84,104,97,110,107,32,121,111,117,32,102,111,114,32,117,115,105,110,103,46)
+	C.TextColor3=_c.fromRGB(255,0,0)
+	C.Font=_e.Font.Arcade
+	C.TextScaled=true
 
-local Bar = Instance.new("Frame", BarBack)
-Bar.Size = UDim2.new(0,0,1,0)
-Bar.BackgroundColor3 = Color3.fromRGB(255,0,0)
-Instance.new("UICorner", Bar)
+	local D=_n(_s(70,114,97,109,101),B)
+	D.Position=_u.new(.1,0,.75,0)
+	D.Size=_u.new(.8,0,0,18)
+	D.BackgroundColor3=_c.fromRGB(25,25,25)
+	_n(_s(85,73,67,111,114,110,101,114),D)
 
-TweenService:Create(Bar,TweenInfo.new(2),{Size = UDim2.new(1,0,1,0)}):Play()
-task.wait(2.2)
-LoadGui:Destroy()
+	local E=_n(_s(70,114,97,109,101),D)
+	E.Size=_u.new(0,0,1,0)
+	E.BackgroundColor3=_c.fromRGB(255,0,0)
+	_n(_s(85,73,67,111,114,110,101,114),E)
 
-------------------------------------------------
--- MAIN UI
-------------------------------------------------
-local Gui = Instance.new("ScreenGui", PG)
-Gui.ResetOnSpawn = false
+	T:Create(E,TweenInfo.new(2),{Size=_u.new(1,0,1,0)}):Play()
+	task.wait(2.2)
+	A:Destroy()
 
-local Frame = Instance.new("Frame", Gui)
-Frame.Size = UDim2.fromOffset(300,140)
-Frame.Position = UDim2.fromScale(0.5,0.5)
-Frame.AnchorPoint = Vector2.new(0.5,0.5)
-Frame.BackgroundColor3 = Color3.fromRGB(0,0,0)
-Frame.Active = true
-Frame.Draggable = true
-Instance.new("UICorner", Frame).CornerRadius = UDim.new(0,16)
+	------------------------------------------------
+	-- MAIN UI
+	------------------------------------------------
+	local A=_n(_s(83,99,114,101,101,110,71,117,105),G)
+	A.ResetOnSpawn=false
 
-local Stroke = Instance.new("UIStroke", Frame)
-Stroke.Color = Color3.fromRGB(255,0,0)
-Stroke.Thickness = 2
+	local B=_n(_s(70,114,97,109,101),A)
+	B.Size=_u.fromOffset(300,140)
+	B.Position=_u.fromScale(.5,.5)
+	B.AnchorPoint=_v.new(.5,.5)
+	B.BackgroundColor3=_c.fromRGB(0,0,0)
+	B.Active=true
+	B.Draggable=true
+	_n(_s(85,73,67,111,114,110,101,114),B).CornerRadius=UDim.new(0,16)
+	_n(_s(85,73,83,116,114,111,107,101),B).Color=_c.fromRGB(255,0,0)
 
-local Title = Instance.new("TextLabel", Frame)
-Title.Size = UDim2.new(1,0,0,40)
-Title.BackgroundTransparency = 1
-Title.Text = "Thank you for using."
-Title.TextColor3 = Color3.fromRGB(255,0,0)
-Title.Font = Enum.Font.Arcade
-Title.TextScaled = true
+	local C=_n(_s(84,101,120,116,76,97,98,101,108),B)
+	C.Size=_u.new(1,0,0,40)
+	C.BackgroundTransparency=1
+	C.Text=_s(84,104,97,110,107,32,121,111,117,32,102,111,114,32,117,115,105,110,103,46)
+	C.TextColor3=_c.fromRGB(255,0,0)
+	C.Font=_e.Font.Arcade
+	C.TextScaled=true
 
-local Button = Instance.new("TextButton", Frame)
-Button.Position = UDim2.new(0.1,0,0.45,0)
-Button.Size = UDim2.new(0.8,0,0,50)
-Button.BackgroundColor3 = Color3.fromRGB(15,15,15)
-Button.Text = "KILL MOB : OFF"
-Button.TextColor3 = Color3.fromRGB(255,0,0)
-Button.Font = Enum.Font.GothamBlack
-Button.TextScaled = true
-Instance.new("UICorner", Button)
+	local D=_n(_s(84,101,120,116,66,117,116,116,111,110),B)
+	D.Position=_u.new(.1,0,.45,0)
+	D.Size=_u.new(.8,0,0,50)
+	D.BackgroundColor3=_c.fromRGB(15,15,15)
+	D.Text=_s(75,73,76,76,32,77,79,66,32,58,32,79,70,70)
+	D.TextColor3=_c.fromRGB(255,0,0)
+	D.Font=_e.Font.GothamBlack
+	D.TextScaled=true
+	_n(_s(85,73,67,111,114,110,101,114),D)
 
-------------------------------------------------
--- SOUND
-------------------------------------------------
-local ClickSound = Instance.new("Sound", SoundService)
-ClickSound.SoundId = "rbxassetid://12221967"
-ClickSound.Volume = 1
+	------------------------------------------------
+	-- SOUND + LOGIC (กองเดียว)
+	------------------------------------------------
+	local Q=_n(_s(83,111,117,110,100),S)
+	Q.SoundId=_s(114,98,120,97,115,115,101,116,105,100,58,47,47,49,50,50,50,49,57,54,55)
+	Q.Volume=1
 
-------------------------------------------------
--- KILL ALL MOB (SMOOTH VERSION)
-------------------------------------------------
-local Enabled = false
-local MobList = {}
+	local X=false
+	local Y={}
+	local Z=false
 
-local ATTACK_RANGE = math.huge     -- ระยะตี
-local MAX_MOBS = 20          -- จำกัดจำนวน mob ต่อรอบ
-local SCAN_COOLDOWN = false  -- กันสแกนรัว
-
-Button.MouseButton1Click:Connect(function()
-	ClickSound:Play()
-	Enabled = not Enabled
-	Button.Text = Enabled and "KILL MOB : ON" or "KILL MOB : OFF"
-	Button.TextColor3 = Enabled and Color3.fromRGB(0,255,0) or Color3.fromRGB(255,0,0)
-end)
-
--- Scan Mob แบบเบา
-local function ScanMobs()
-	if SCAN_COOLDOWN then return end
-	SCAN_COOLDOWN = true
-
-	table.clear(MobList)
-	for _, m in ipairs(workspace:GetDescendants()) do
-		if m:IsA("Model")
-		and m:FindFirstChild("Humanoid")
-		and m:FindFirstChild("HumanoidRootPart")
-		and not Players:GetPlayerFromCharacter(m) then
-			table.insert(MobList, m)
-		end
-	end
-
-	task.delay(1, function()
-		SCAN_COOLDOWN = false
+	D.MouseButton1Click:Connect(function()
+		Q:Play()
+		X=not X
+		D.Text=X and _s(75,73,76,76,32,77,79,66,32,58,32,79,78)
+			or _s(75,73,76,76,32,77,79,66,32,58,32,79,70,70)
+		D.TextColor3=X and _c.fromRGB(0,255,0) or _c.fromRGB(255,0,0)
 	end)
-end
 
-ScanMobs()
-workspace.DescendantAdded:Connect(ScanMobs)
+	workspace.DescendantAdded:Connect(function()
+		if Z then return end
+		Z=true
+		table.clear(Y)
+		for _,m in ipairs(workspace:GetDescendants()) do
+			if m:IsA("Model")
+			and m:FindFirstChild("Humanoid")
+			and m:FindFirstChild("HumanoidRootPart")
+			and not P:GetPlayerFromCharacter(m) then
+				Y[#Y+1]=m
+			end
+		end
+		task.delay(1,function()Z=false end)
+	end)
 
--- Loop ตี Mob
-task.spawn(function()
-	while true do
-		task.wait(0.1)
-		if not Enabled then continue end
-
-		local char = LP.Character
-		local hrp = char and char:FindFirstChild("HumanoidRootPart")
-		local tool = char and char:FindFirstChildOfClass("Tool")
-		local handle = tool and tool:FindFirstChild("Handle")
-		if not (hrp and handle) then continue end
-
-		tool:Activate()
-		local hit = 0
-
-		for _, mob in ipairs(MobList) do
-			if hit >= MAX_MOBS then break end
-
-			local hum = mob:FindFirstChild("Humanoid")
-			local mhrp = mob:FindFirstChild("HumanoidRootPart")
-
-			if hum and mhrp and hum.Health > 0 then
-				if (mhrp.Position - hrp.Position).Magnitude <= ATTACK_RANGE then
-					firetouchinterest(handle, mhrp, 0)
-					firetouchinterest(handle, mhrp, 1)
-					hit += 1
+	task.spawn(function()
+		while true do
+			task.wait(.1)
+			if not X then continue end
+			local c=L.Character
+			local r=c and c:FindFirstChild("HumanoidRootPart")
+			local t=c and c:FindFirstChildOfClass("Tool")
+			local h=t and t:FindFirstChild("Handle")
+			if not (r and h) then continue end
+			t:Activate()
+			local n=0
+			for _,m in ipairs(Y) do
+				if n>=20 then break end
+				local u=m:FindFirstChild("Humanoid")
+				local p=m:FindFirstChild("HumanoidRootPart")
+				if u and p and u.Health>0 then
+					firetouchinterest(h,p,0)
+					firetouchinterest(h,p,1)
+					n+=1
 				end
 			end
 		end
-	end
-end)
+	end)
+end
